@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
 
-let conn = require('./../utils/conn');
+let conn = require('./../util/conn');
 const Blog = require('./../bean/blog');
 
 /* 登录页 */
