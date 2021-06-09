@@ -5,8 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mysql = require('mysql');
 
+let indexRouter = require('./routes/index');
 let loginRouter = require('./routes/login');
-let homeRouter = require('./routes/home');
 let aboutRouter = require('./routes/about');
 let albumRouter = require('./routes/album');
 let detailsRouter = require('./routes/details');
@@ -14,6 +14,9 @@ let leacotsRouter = require('./routes/leacots');
 let whisperRouter = require('./routes/whisper');
 let registerRouter = require('./routes/register');
 let adminLoginRouter = require('./routes/adminLogin');
+let articleRouter = require('./routes/article');
+let updateArticleRouter = require('./routes/updateArticle');
+let addArticleRouter = require('./routes/addArticle');
 
 var app = express();
 
@@ -27,15 +30,19 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/',loginRouter);
+app.use('/',indexRouter);
+app.use('/login',loginRouter);
 app.use('/register',registerRouter);
-app.use('/home', homeRouter);
 app.use('/about',aboutRouter);
 app.use('/album',albumRouter);
 app.use('/details',detailsRouter);
 app.use('/leacots',leacotsRouter);
 app.use('/whisper',whisperRouter);
 app.use('/adminLogin',adminLoginRouter);
+app.use('/article',articleRouter);
+app.use('/updateArticle',updateArticleRouter);
+app.use('/addArticle',addArticleRouter);
+
 
 
 // catch 404 and forward to error handler
@@ -50,6 +57,7 @@ app.use(function(err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
+  console.log("错误"+err);
   res.status(err.status || 500);
   res.render('error');
 });
