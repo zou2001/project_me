@@ -9,7 +9,8 @@ var database = mysql.createConnection({
     user    : 'root',
     password: '123456',
     database: 'project_me',
-    port    : 3306
+    port    : 3306,
+    debug:true
 });
 database.query(sql,(err,results) =>{
     callback(err,results);
@@ -23,7 +24,8 @@ db.queryParam = function(sql,param,callback){
         user    : 'root',
         password: '123456',
         database: 'project_me',
-        port    : 3306
+        port    : 3306,
+        debug:true
     });
     database.query(sql,param,(err,results) =>{
         callback(err,results);

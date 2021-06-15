@@ -12,18 +12,12 @@ router.get('/', function(req, res, next) {
 });
 /**模糊查询文章 */
 router.post('/',(req,res) => {
-  // console.log(req.body);
   db.queryParam("select * from tab_details where title like ? ",["%"+req.body.search+"%"],(err,result) => {
     res.render('article',{data:result});
   })
 })
 
-/**删除文章 */
-router.get('/', function(req, res, next) {
-  db.queryParam("delete from tab_details where id =?",[req.body.id],(err,result) =>{
-    res.render('article',{data:result});
-});
-});
+
 
 
 

@@ -5,7 +5,7 @@
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>文章 - 异清轩博客管理系统</title>
+<title>文章 - 后台管理系统</title>
 <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 <link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome.min.css">
@@ -40,12 +40,12 @@
                 <li><a title="查看您的登录记录" data-toggle="modal" data-target="#seeUserLoginlog">登录记录</a></li>
               </ul>
             </li>
-            <li><a href="/Index/outLogin" onClick="if(!confirm('是否确认退出？'))return false;">退出登录</a></li>
+            <li><a href="/adminLogin" onClick="if(!confirm('是否确认退出？'))return false;">退出登录</a></li>
             <li><a data-toggle="modal" data-target="#WeChat">帮助</a></li>
           </ul>
           <form action="/article" method="post" class="navbar-form navbar-right" role="search">
             <div class="input-group">
-              <input type="text" name="search" class="form-control" autocomplete="off" placeholder="键入关键字搜索" maxlength="15">
+              <input type="text" name="search" class="form-control" autocomplete="off" placeholder="键入文章标题搜索" maxlength="15">
               <span class="input-group-btn">
               <button class="btn btn-default" type="submit">搜索</button>
               </span> </div>
@@ -62,7 +62,7 @@
       <ul class="nav nav-sidebar">
         <li class="active"><a href="/article">文章</a></li>
         <!-- <li><a href="notice">公告</a></li> -->
-        <li><a href="/comment">评论</a></li>
+        <!-- <li><a href="/comment">评论</a></li> -->
         <!-- <li><a data-toggle="tooltip" data-placement="top" title="网站暂无留言功能">留言</a></li> -->
       </ul>
       <ul class="nav nav-sidebar">
@@ -124,7 +124,10 @@
                 <td class="hidden-sm">PHP、JavaScript</td>
                 <td class="hidden-sm">0</td>
                 <td><%= o.create_time%></td>
-                <td><a href="/updateArticle">修改</a> <a rel="6">删除</a></td>
+                <td>
+                    <a class="upd" data_id="<%=o.id%>">修改</a> 
+                    <a href="deteleArticle?id=<%=o.id%>" rel="6" class="del" data_id="<%=o.id%>">删除</a>
+                </td>
               </tr>
               <% } %>
               
@@ -295,7 +298,7 @@
 </div>
 <script src="/javascripts/bootstrap.min.js"></script> 
 <script src="/javascripts/admin-scripts.js"></script> 
-<script>
+<!-- <script>
 //是否确认删除
 $(function(){   
 	$("#main table tbody tr td a").click(function(){
@@ -318,6 +321,13 @@ $(function(){
 		};
 	});   
 });
+</script> -->
+<script>
+  Array.from(document.getElementsByClassName("upd")).forEach( i =>{
+    i.onclick = function(){
+      window.location.href="/updateArticle/"+this.getAttribute('data_id')
+    }
+  });
 </script>
 </body>
 </html>

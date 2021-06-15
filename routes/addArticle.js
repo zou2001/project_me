@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/',(req,res) => {
-  db.queryParam("insert into tab_details (title,details,article,create_time,updata_time) value(?,?,?,?,?)",[req.body.title,req.body.details,req.body.article,new Date(),new Date()],(err,result)=>{
+  db.queryParam("insert into tab_details (title,details,article,picture,create_time,updata_time) value(?,?,?,?,?,?)",[req.body.title,req.body.details,req.body.article,req.body.picture,new Date(),new Date()],(err,result)=>{
     if(err){
       console.log(err)
     }

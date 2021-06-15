@@ -17,6 +17,7 @@ let adminLoginRouter = require('./routes/adminLogin');
 let articleRouter = require('./routes/article');
 let updateArticleRouter = require('./routes/updateArticle');
 let addArticleRouter = require('./routes/addArticle');
+let deteleArticleRouter =require('./routes/deteleArticle');
 
 var app = express();
 
@@ -42,7 +43,7 @@ app.use('/adminLogin',adminLoginRouter);
 app.use('/article',articleRouter);
 app.use('/updateArticle',updateArticleRouter);
 app.use('/addArticle',addArticleRouter);
-
+app.use('/deteleArticle',deteleArticleRouter);
 
 
 // catch 404 and forward to error handler

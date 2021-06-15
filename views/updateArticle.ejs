@@ -57,38 +57,38 @@
   <div class="row">
     <aside class="col-sm-3 col-md-2 col-lg-2 sidebar">
       <ul class="nav nav-sidebar">
-        <li><a href="main.html">报告</a></li>
+        <li><a href="/main">报告</a></li>
       </ul>
       <ul class="nav nav-sidebar">
         <li class="active"><a href="/article">文章</a></li>
-        <li><a href="notice.html">公告</a></li>
-        <li><a href="comment.html">评论</a></li>
-        <li><a data-toggle="tooltip" data-placement="top" title="网站暂无留言功能">留言</a></li>
+        <!-- <li><a href="notice.html">公告</a></li> -->
+        <li><a href="/comment">评论</a></li>
+        <!-- <li><a data-toggle="tooltip" data-placement="top" title="网站暂无留言功能">留言</a></li> -->
       </ul>
       <ul class="nav nav-sidebar">
-        <li><a href="category.html">栏目</a></li>
+        <li><a href="/category">栏目</a></li>
         <li><a class="dropdown-toggle" id="otherMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">其他</a>
           <ul class="dropdown-menu" aria-labelledby="otherMenu">
-            <li><a href="user-group.html">友情链接</a></li>
-            <li><a href="loginlog.html">访问记录</a></li>
+            <li><a href="/user-group">友情链接</a></li>
+            <li><a href="/loginlog">访问记录</a></li>
           </ul>
         </li>
       </ul>
       <ul class="nav nav-sidebar">
         <li><a class="dropdown-toggle" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">用户</a>
           <ul class="dropdown-menu" aria-labelledby="userMenu">
-            <li><a href="user-group.html">管理用户组</a></li>
-            <li><a href="manage-user.html">管理用户</a></li>
+            <li><a href="/user-group">管理用户组</a></li>
+            <li><a href="/manage-user">管理用户</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="loginlog.html">管理登录日志</a></li>
+            <li><a href="/loginlog">管理登录日志</a></li>
           </ul>
         </li>
         <li><a class="dropdown-toggle" id="settingMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">设置</a>
           <ul class="dropdown-menu" aria-labelledby="settingMenu">
-            <li><a href="setting.html">基本设置</a></li>
-            <li><a href="readset.html">用户设置</a></li>
+            <li><a href="/setting">基本设置</a></li>
+            <li><a href="/readset">用户设置</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="safety.html">安全配置</a></li>
+            <li><a href="/safety">安全配置</a></li>
             <li role="separator" class="divider"></li>
             <li class="disabled"><a>扩展菜单</a></li>
           </ul>
@@ -97,35 +97,44 @@
     </aside>
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-lg-10 col-md-offset-2 main" id="main">
       <div class="row">
-        <form action="/Article/update" method="post" class="add-article-form">
+        <form action="/updateArticle" method="post" class="add-article-form">
+          <input type="hidden" name="id" value="<%= obj.id%>">
           <div class="col-md-9">
             <h1 class="page-header">文章修改</h1>
             <div class="form-group">
               <label for="article-title" class="sr-only">标题</label>
-              <input type="text" id="article-title" name="title" class="form-control" placeholder="在此处输入标题" value="这是测试的文章标题这是测试的文章标题这是测试的文章标题这是测试的文章标题" required autofocus autocomplete="off">
+              <input type="text" id="article-title" name="title" class="form-control" placeholder="在此处输入标题" value="<%=obj.title%>" required autofocus autocomplete="off">
             </div>
             <div class="form-group">
               <label for="article-content" class="sr-only">内容</label>
-              <script id="article-content" name="content" type="text/plain">这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容这是测试的文章内容.</script>
+              <!-- <script id="article-content" name="article" type="text/plain"><%=obj.article%></script> -->
+              <!-- <input type="text" name="article" value="<%=obj.article%>"> -->
+              <div class="add-article-box">
+                <h2 class="add-article-box-title"><span>内容</span></h2>
+                <div class="add-article-box-content">
+                  <textarea class="form-control" name="article" autocomplete="off"><%=obj.article%></textarea>
+                  <span class="prompt-text">文章内容</span>
+                </div>
+              </div>
             </div>
-            <div class="add-article-box">
+            <!-- <div class="add-article-box">
               <h2 class="add-article-box-title"><span>关键字</span></h2>
               <div class="add-article-box-content">
               	<input type="text" class="form-control" placeholder="请输入关键字" value="测试,文章" name="keywords" autocomplete="off">
                 <span class="prompt-text">多个标签请用英文逗号,隔开。</span>
               </div>
-            </div>
+            </div> -->
             <div class="add-article-box">
-              <h2 class="add-article-box-title"><span>描述</span></h2>
+              <h2 class="add-article-box-title"><span>详情描述</span></h2>
               <div class="add-article-box-content">
-              	<textarea class="form-control" name="describe" autocomplete="off">这是测试的文章描述这是测试的文章描述这是测试的文章描述这是测试的文章描述这是测试的文章描述这是测试的文章描述这是测试的文章描述这是测试的文章描述这是测试的文章描述这是测试的文章描述这是测试的文章描述这是测试的文章描述这是测试的文章描述这是测试的文章描述</textarea>
+              	<textarea class="form-control" name="details" autocomplete="off"><%=obj.details%></textarea>
                 <span class="prompt-text">描述是可选的手工创建的内容总结，并可以在网页描述中使用</span>
               </div>
             </div>
           </div>
           <div class="col-md-3">
             <h1 class="page-header">操作</h1>
-            <div class="add-article-box">
+            <!-- <div class="add-article-box">
               <h2 class="add-article-box-title"><span>栏目</span></h2>
               <div class="add-article-box-content">
                 <ul class="category-list">
@@ -156,17 +165,17 @@
                   </li>
                 </ul>
               </div>
-            </div>
-            <div class="add-article-box">
+            </div> -->
+            <!-- <div class="add-article-box">
               <h2 class="add-article-box-title"><span>标签</span></h2>
               <div class="add-article-box-content">
                 <input type="text" class="form-control" placeholder="输入新标签" value="测试,文章" name="tags" autocomplete="off">
                 <span class="prompt-text">多个标签请用英文逗号,隔开</span> </div>
-            </div>
+            </div> -->
             <div class="add-article-box">
               <h2 class="add-article-box-title"><span>标题图片</span></h2>
               <div class="add-article-box-content">
-                <input type="text" class="form-control" placeholder="点击按钮选择图片" id="pictureUpload" name="titlepic" autocomplete="off">
+                <input type="text" class="form-control" placeholder="点击按钮选择图片" id="pictureUpload" value="<%= obj.picture%>" name="picture" autocomplete="off">
               </div>
               <div class="add-article-box-footer">
                 <button class="btn btn-default" type="button" ID="upImage">选择</button>
@@ -174,17 +183,18 @@
             </div>
             <div class="add-article-box">
               <h2 class="add-article-box-title"><span>发布</span></h2>
-              <div class="add-article-box-content">
+              <!-- <div class="add-article-box-content">
               	<p><label>状态：</label><span class="article-status-display">已发布</span></p>
                 <p><label>公开度：</label><input type="radio" name="visibility" value="0" checked/>公开 <input type="radio" name="visibility" value="1" />加密</p>
                 <p><label>发布于：</label><span class="article-time-display"><input style="border: none;" type="datetime" name="time" value="2016-01-09 17:29:37" /></span></p>
-              </div>
+              </div> -->
               <div class="add-article-box-footer">
                 <button class="btn btn-primary" type="submit" name="submit">更新</button>
               </div>
             </div>
           </div>
         </form>
+        
       </div>
     </div>
   </div>
