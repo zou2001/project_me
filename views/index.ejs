@@ -38,7 +38,7 @@
       <li class="layui-nav-item"><a href="/about">关于</a></li>
     </ul>
     <p class="welcome-text">
-      欢迎来到<span class="name">小明</span>的博客~
+      欢迎来到<span class="name">邹文忠</span>的博客~
     </p>
   </div>
 
@@ -76,7 +76,7 @@
                   <h3><%=o.title%><button class="layui-btn layui-btn-danger new-icon">new</button></h3>
                   <h5>设计文章</h5>
                   <p><%=o.details%></p>
-                  <a href="/details" class="go-icon"></a>
+                  <a href="details?id=<%=o.id%>" class="go-icon det" data_id="<%=o.id%>"></a>
                 </div>
             </div>
             </div>
@@ -105,6 +105,13 @@
     </div>
   </div>
   <script type="text/javascript" src="/layui/layui.js"></script>
-  
+  <!-- <script>
+    Array.from(document.getElementsByClassName("det")).forEach( i =>{
+      i.onclick = function(){
+        window.location.href="/details/"+this.getAttribute('data_id')
+      }
+    })
+  </script>
+   -->
 </body>
 </html>

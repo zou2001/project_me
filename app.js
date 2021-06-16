@@ -6,7 +6,6 @@ var logger = require('morgan');
 var mysql = require('mysql');
 
 let indexRouter = require('./routes/index');
-let loginRouter = require('./routes/login');
 let aboutRouter = require('./routes/about');
 let albumRouter = require('./routes/album');
 let detailsRouter = require('./routes/details');
@@ -18,6 +17,7 @@ let articleRouter = require('./routes/article');
 let updateArticleRouter = require('./routes/updateArticle');
 let addArticleRouter = require('./routes/addArticle');
 let deteleArticleRouter =require('./routes/deteleArticle');
+let loginaRouter= require('./routes/logina');
 
 var app = express();
 
@@ -32,7 +32,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/',indexRouter);
-app.use('/login',loginRouter);
 app.use('/register',registerRouter);
 app.use('/about',aboutRouter);
 app.use('/album',albumRouter);
@@ -44,6 +43,7 @@ app.use('/article',articleRouter);
 app.use('/updateArticle',updateArticleRouter);
 app.use('/addArticle',addArticleRouter);
 app.use('/deteleArticle',deteleArticleRouter);
+app.use('/logina',loginaRouter);
 
 
 // catch 404 and forward to error handler
@@ -58,7 +58,7 @@ app.use(function(err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  console.log("错误"+err);
+  console.log(err);
   res.status(err.status || 500);
   res.render('error');
 });

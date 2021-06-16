@@ -1,5 +1,5 @@
 var mysql = require('mysql');
-const router = require('./login');
+// const router = require('./logina');
 var db = {};
 
 /**连接数据库 */
@@ -17,7 +17,7 @@ database.query(sql,(err,results) =>{
 });
 database.end();
 };
-/**操作文章表 */
+/**操作表 */
 db.queryParam = function(sql,param,callback){
     var database = mysql.createConnection({
         host    : 'localhost',
@@ -32,6 +32,7 @@ db.queryParam = function(sql,param,callback){
     });
     database.end();
     };
+
 
 
 module.exports = db;

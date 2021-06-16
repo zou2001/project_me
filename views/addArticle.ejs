@@ -33,7 +33,6 @@
           <a class="navbar-brand" href="/">YlsatCMS</a> </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="">消息 <span class="badge">1</span></a></li>
             <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">admin <span class="caret"></span></a>
               <ul class="dropdown-menu dropdown-menu-left">
                 <li><a title="查看或修改个人信息" data-toggle="modal" data-target="#seeUserInfo">个人信息</a></li>
@@ -43,13 +42,13 @@
             <li><a href="/Index/outLogin" onClick="if(!confirm('是否确认退出？'))return false;">退出登录</a></li>
             <li><a data-toggle="modal" data-target="#WeChat">帮助</a></li>
           </ul>
-          <form action="" method="post" class="navbar-form navbar-right" role="search">
+          <!-- <form action="" method="post" class="navbar-form navbar-right" role="search">
             <div class="input-group">
               <input type="text" class="form-control" autocomplete="off" placeholder="键入关键字搜索" maxlength="15">
               <span class="input-group-btn">
               <button class="btn btn-default" type="submit">搜索</button>
               </span> </div>
-          </form>
+          </form> -->
         </div>
       </div>
     </nav>
@@ -64,15 +63,6 @@
         <!-- <li><a href="/notice">公告</a></li> -->
         <li><a href="/comment">评论</a></li>
         <!-- <li><a data-toggle="tooltip" data-placement="top" title="网站暂无留言功能">留言</a></li> -->
-      </ul>
-      <ul class="nav nav-sidebar">
-        <li><a href="/category">栏目</a></li>
-        <li><a class="dropdown-toggle" id="otherMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">其他</a>
-          <ul class="dropdown-menu" aria-labelledby="otherMenu">
-            <li><a href="/user-group">友情链接</a></li>
-            <li><a href="/loginlog">访问记录</a></li>
-          </ul>
-        </li>
       </ul>
       <ul class="nav nav-sidebar">
         <li><a class="dropdown-toggle" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">用户</a>
@@ -125,39 +115,7 @@
             </div> -->
           </div>
           <div class="col-md-3">
-            <h1 class="page-header">操作</h1>
-            <!-- <div class="add-article-box">
-              <h2 class="add-article-box-title"><span>栏目</span></h2>
-              <div class="add-article-box-content">
-                <ul class="category-list">
-                  <li>
-                    <label>
-                      <input name="category" type="radio" value="1" checked>
-                      这是栏目 <em class="hidden-md">( 栏目ID: <span>1</span> )</em></label>
-                  </li>
-                  <li>
-                    <label>
-                      <input name="category" type="radio" value="2">
-                      这是栏目 <em class="hidden-md">( 栏目ID: <span>2</span> )</em></label>
-                  </li>
-                  <li>
-                    <label>
-                      <input name="category" type="radio" value="3">
-                      这是栏目 <em class="hidden-md">( 栏目ID: <span>3</span> )</em></label>
-                  </li>
-                  <li>
-                    <label>
-                      <input name="category" type="radio" value="4">
-                      这是栏目 <em class="hidden-md">( 栏目ID: <span>4</span> )</em></label>
-                  </li>
-                  <li>
-                    <label>
-                      <input name="category" type="radio" value="5">
-                      这是栏目 <em class="hidden-md">( 栏目ID: <span>5</span> )</em></label>
-                  </li>
-                </ul>
-              </div>
-            </div> -->
+            <h1 class="page-header">操作</h1> 
             <!-- <div class="add-article-box">
               <h2 class="add-article-box-title"><span>标签</span></h2>
               <div class="add-article-box-content">

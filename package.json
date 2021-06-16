@@ -17,5 +17,9 @@
     "node-mysql": "^0.4.2",
     "normalize.css": "^8.0.1",
     "silly-datetime": "^0.1.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.12",
+    "@types/mysql": "^2.15.18"
   }
 }

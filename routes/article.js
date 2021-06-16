@@ -5,7 +5,7 @@ var db = require('./db');
 /* GET users listing. */
 /**展示数据 */
 router.get('/', function(req, res, next) {
-  db.query("select * from tab_details ",(err,result) =>{
+  db.query("select * from tab_details order by updata_time desc",(err,result) =>{
     // console.log(result);
     res.render('article',{data:result});
 });
